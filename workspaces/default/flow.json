@@ -1,0 +1,147 @@
+{
+  "edges": [
+    {
+      "id": "e_1777299583209",
+      "source": "start",
+      "target": "step_1777299578478"
+    },
+    {
+      "id": "e_1777300086953",
+      "source": "step_1777299578478",
+      "target": "step_1777300081165"
+    },
+    {
+      "id": "e_1777300220032_0_step_1777300176433",
+      "source": "step_1777300081165",
+      "target": "step_1777300176433"
+    },
+    {
+      "id": "e_1777300220032_1_step_1777300177835",
+      "source": "step_1777300081165",
+      "target": "step_1777300177835"
+    },
+    {
+      "id": "e_1777302147710",
+      "source": "step_1777300177835",
+      "target": "step_1777302109439"
+    }
+  ],
+  "steps": [
+    {
+      "id": "start",
+      "type": "start",
+      "position": {
+        "x": 12,
+        "y": 21
+      },
+      "context": {}
+    },
+    {
+      "id": "step_1777299578478",
+      "type": "message",
+      "position": {
+        "x": 140,
+        "y": 165
+      },
+      "dimensions": {
+        "width": 280,
+        "height": 120
+      },
+      "context": {
+        "name": "",
+        "description": "",
+        "messageText": "Olá 👋!\nSeja muito bem vindo. 😊\nEu sou a Flower, sua assistente virtual 😃!\nIrei lhe guiar para o melhor atendimento.",
+        "contextKey": "",
+        "options": [],
+        "text": "Olá 👋!\nSeja muito bem vindo. 😊\nEu sou a Flower, sua assistente virtual 😃!\nIrei lhe guiar para o melhor atendimento."
+      }
+    },
+    {
+      "id": "step_1777300081165",
+      "type": "input",
+      "position": {
+        "x": 134,
+        "y": 334
+      },
+      "dimensions": {
+        "width": 280,
+        "height": 120
+      },
+      "context": {
+        "name": "Primeiro passo",
+        "description": "",
+        "messageText": "O Que você gostaria de fazer?",
+        "contextKey": "",
+        "options": [
+          "1️⃣ Agendamento",
+          "2️⃣Cancelamento"
+        ],
+        "optionTargetNodeIds": [
+          "step_1777300176433",
+          "step_1777300177835"
+        ],
+        "text": "O Que você gostaria de fazer?"
+      }
+    },
+    {
+      "id": "step_1777300176433",
+      "type": "message",
+      "position": {
+        "x": 470,
+        "y": 263
+      },
+      "dimensions": {
+        "width": 280,
+        "height": 120
+      },
+      "context": {
+        "name": "Agendamento",
+        "description": "",
+        "messageText": "Muito bem, vamos seguir com seu agendamento!",
+        "contextKey": "",
+        "options": [],
+        "text": "Muito bem, vamos seguir com seu agendamento!"
+      }
+    },
+    {
+      "id": "step_1777300177835",
+      "type": "message",
+      "position": {
+        "x": 464,
+        "y": 441
+      },
+      "dimensions": {
+        "width": 280,
+        "height": 120
+      },
+      "context": {
+        "name": "Cancelamento",
+        "description": "",
+        "messageText": "Que pena mas vamos lá",
+        "contextKey": "",
+        "options": [],
+        "text": "Que pena mas vamos lá"
+      }
+    },
+    {
+      "id": "step_1777302109439",
+      "type": "output",
+      "position": {
+        "x": 940,
+        "y": 346
+      },
+      "dimensions": {
+        "width": 280,
+        "height": 120
+      },
+      "context": {
+        "name": "Cancelado",
+        "description": "",
+        "messageText": "Seu cancelamento será realizado.\nMuito obrigado!",
+        "contextKey": "",
+        "options": [],
+        "text": "Seu cancelamento será realizado.\nMuito obrigado!"
+      }
+    }
+  ]
+}

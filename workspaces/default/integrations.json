@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "providers": [
+    {
+      "id": "whatsapp",
+      "kind": "whatsapp",
+      "enabled": false,
+      "label": "WhatsApp Web (whatsapp-web.js)",
+      "notes": "",
+      "config": {}
+    },
+    {
+      "id": "telegram",
+      "kind": "telegram",
+      "enabled": false,
+      "label": "Telegram Bot",
+      "notes": "",
+      "config": {
+        "botRef": ""
+      }
+    },
+    {
+      "id": "saas",
+      "kind": "saas",
+      "enabled": false,
+      "label": "SaaS / plataforma",
+      "notes": "",
+      "config": {
+        "baseUrl": "",
+        "clientRef": ""
+      }
+    },
+    {
+      "id": "webhook",
+      "kind": "webhook",
+      "enabled": false,
+      "label": "Webhook HTTP de saída",
+      "notes": "",
+      "config": {
+        "url": "",
+        "secretEnv": ""
+      }
+    }
+  ]
+}
