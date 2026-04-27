@@ -39,6 +39,36 @@
       "id": "e_1777313667817_3_step_1777313546856",
       "source": "step_1777300081165",
       "target": "step_1777313546856"
+    },
+    {
+      "id": "e_1777314474336",
+      "source": "step_1777300176433",
+      "target": "step_1777314389010"
+    },
+    {
+      "id": "e_1777318796524",
+      "source": "step_1777318741008",
+      "target": "step_1777314389010"
+    },
+    {
+      "id": "e_1777318826960_0_step_1777318741008",
+      "source": "step_1777314389010",
+      "target": "step_1777318741008"
+    },
+    {
+      "id": "e_1777318826960_1_step_1777313546856",
+      "source": "step_1777314389010",
+      "target": "step_1777313546856"
+    },
+    {
+      "id": "e_1777318826960_2_step_1777314479807",
+      "source": "step_1777314389010",
+      "target": "step_1777314479807"
+    },
+    {
+      "id": "e_1777319574155",
+      "source": "step_1777314479807",
+      "target": "time_step"
     }
   ],
   "steps": [
@@ -46,8 +76,8 @@
       "id": "start",
       "type": "start",
       "position": {
-        "x": 12,
-        "y": 21
+        "x": -307,
+        "y": -175
       },
       "context": {}
     },
@@ -55,8 +85,8 @@
       "id": "step_1777299578478",
       "type": "message",
       "position": {
-        "x": 140,
-        "y": 165
+        "x": 59,
+        "y": -178
       },
       "dimensions": {
         "width": 280,
@@ -89,8 +119,8 @@
       "id": "step_1777300081165",
       "type": "input",
       "position": {
-        "x": 134,
-        "y": 334
+        "x": 252,
+        "y": 23
       },
       "dimensions": {
         "width": 280,
@@ -119,8 +149,8 @@
       "id": "step_1777300176433",
       "type": "message",
       "position": {
-        "x": 470,
-        "y": 263
+        "x": 575,
+        "y": 115
       },
       "dimensions": {
         "width": 280,
@@ -139,8 +169,8 @@
       "id": "step_1777300177835",
       "type": "message",
       "position": {
-        "x": 464,
-        "y": 441
+        "x": 513,
+        "y": 570
       },
       "dimensions": {
         "width": 280,
@@ -159,8 +189,8 @@
       "id": "step_1777302109439",
       "type": "output",
       "position": {
-        "x": 971,
-        "y": 533
+        "x": 488,
+        "y": 729
       },
       "dimensions": {
         "width": 280,
@@ -179,8 +209,8 @@
       "id": "step_1777311807298",
       "type": "message",
       "position": {
-        "x": 120,
-        "y": 549
+        "x": -118,
+        "y": 341
       },
       "dimensions": {
         "width": 280,
@@ -199,8 +229,8 @@
       "id": "step_1777313546856",
       "type": "output",
       "position": {
-        "x": 437,
-        "y": 697
+        "x": 674,
+        "y": -173
       },
       "dimensions": {
         "width": 280,
@@ -213,6 +243,100 @@
         "contextKey": "",
         "options": [],
         "text": "Infelizmente o número máximo de tentativas chegou ao limite.\nEstou finalizando a conversa. 🤯"
+      }
+    },
+    {
+      "id": "step_1777314389010",
+      "type": "input",
+      "position": {
+        "x": 889,
+        "y": 58
+      },
+      "dimensions": {
+        "width": 280,
+        "height": 120
+      },
+      "context": {
+        "name": "serviço",
+        "description": "",
+        "messageText": "Muito bem qual o serviço que deseja agendar?",
+        "contextKey": "",
+        "options": [
+          "1️⃣ BARBA",
+          "2️⃣ CABELO",
+          "3️⃣ SOBRAMCELHA",
+          "4️⃣ HIDRATAÇÃO",
+          "5️⃣ ESCOVA"
+        ],
+        "optionTargetNodeIds": [
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "text": "Muito bem qual o serviço que deseja agendar?",
+        "unifiedValidOptionTargetNodeId": "step_1777314479807",
+        "invalidOptionTargetNodeId": "step_1777318741008",
+        "invalidOptionMaxAttempts": 2,
+        "invalidOptionExhaustedTargetNodeId": "step_1777313546856"
+      }
+    },
+    {
+      "id": "step_1777314479807",
+      "type": "message",
+      "position": {
+        "x": 1270,
+        "y": 53
+      },
+      "dimensions": {
+        "width": 280,
+        "height": 120
+      },
+      "context": {
+        "name": "SERVICE SELECTED",
+        "description": "",
+        "messageText": "Vejo que você selecionou {{step_1777314389010}}",
+        "contextKey": "",
+        "options": [],
+        "text": "Vejo que você selecionou {{step_1777314389010}}",
+        "optionsCode": "const selected = api.getContext('step_1777314389010');\n\nconst option = api.getOptions('step_1777314389010')[selected-1];\n\napi.setMessage(`Maravilha!\\nVejo que você quer agendar ${option}`);\n\napi.setNextStep('time_step', 'input');"
+      }
+    },
+    {
+      "id": "step_1777318741008",
+      "type": "message",
+      "position": {
+        "x": 884,
+        "y": 239
+      },
+      "dimensions": {
+        "width": 280,
+        "height": 120
+      },
+      "context": {
+        "name": "SERVICE_FALLBACK",
+        "description": "",
+        "messageText": "Não reconheci a opção selecionada.\nvamos tentar novamente?\n",
+        "contextKey": "",
+        "options": [],
+        "text": "Não reconheci a opção selecionada.\nvamos tentar novamente?\n"
+      }
+    },
+    {
+      "id": "time_step",
+      "type": "input",
+      "position": {
+        "x": 1656,
+        "y": 186
+      },
+      "context": {
+        "name": "time_step",
+        "messageText": "",
+        "description": "",
+        "text": "",
+        "options": [],
+        "optionTargetNodeIds": []
       }
     }
   ]
