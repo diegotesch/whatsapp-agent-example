@@ -16,6 +16,8 @@ O agente **já escuta** o WhatsApp assim que a sessão fica pronta (evento `mess
 
 O agente depende do pacote **`flow-expert`** (subpath `flow-expert/agent-client`). Neste monorepo a referência é `file:../flow-expert`.
 
+**Documentação de integração** (o que fazer com o JSON de `POST /api/run`, `outputsToWhatsappText`, mídias, `baseUrl`): [../flow-expert/docs/AGENTE_CLIENTE_HTTP.md](../flow-expert/docs/AGENTE_CLIENTE_HTTP.md). O `src/server.ts` destrutura a resposta com as mesmas funções do `agent-client` — altere o agente a partir desse padrão para novos canais.
+
 ```bash
 cd ../flow-expert && npm install && npm run build
 cd ../whatsapp-flow-agent

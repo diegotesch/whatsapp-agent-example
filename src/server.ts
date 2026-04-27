@@ -3,7 +3,12 @@ import express from "express";
 import qrcode from "qrcode-terminal";
 /** whatsapp-web.js é CJS; com `"type":"module"` o Node não aceita named imports directos. */
 import wwebjs from "whatsapp-web.js";
-import { listMediaFromOutputs, outputsToWhatsappText, runFlow } from "flow-expert/agent-client";
+import {
+  listMediaFromOutputs,
+  outputsToWhatsappText,
+  resolveMediaUrlToAbsolute,
+  runFlow,
+} from "flow-expert/agent-client";
 
 const { Client, LocalAuth, MessageMedia } = wwebjs;
 
@@ -100,18 +105,19 @@ client.on("message", async (msg) => {
       await msg.reply(`Erro no fluxo: ${result.error.message}`.slice(0, 4096));
       return;
     }
-    const reply = outputsToWhatsappText(result.outputs);
+    const reply = outputsToWhatsappText(result.outputs, { baseUrl: FLOW_EXPERT_URL });
     if (reply.trim() !== "") {
       await msg.reply(reply.slice(0, 4090));
     }
     for (const m of listMediaFromOutputs(result.outputs)) {
       try {
-        const media = await MessageMedia.fromUrl(m.url, { unsafeMime: true });
+        const fullUrl = resolveMediaUrlToAbsolute(m.url, FLOW_EXPERT_URL);
+        const media = await MessageMedia.fromUrl(fullUrl, { unsafeMime: true });
         await client.sendMessage(msg.from, media);
       } catch (e) {
         console.error("[wweb] mídia", m.url, e);
         try {
-          await msg.reply(m.url);
+          await msg.reply(resolveMediaUrlToAbsolute(m.url, FLOW_EXPERT_URL));
         } catch {
           /* ignore */
         }

@@ -11,19 +11,34 @@
       "target": "step_1777300081165"
     },
     {
-      "id": "e_1777300220032_0_step_1777300176433",
+      "id": "e_1777302147710",
+      "source": "step_1777300177835",
+      "target": "step_1777302109439"
+    },
+    {
+      "id": "e_1777311849978",
+      "source": "step_1777311807298",
+      "target": "step_1777300081165"
+    },
+    {
+      "id": "e_1777313667817_0_step_1777300176433",
       "source": "step_1777300081165",
       "target": "step_1777300176433"
     },
     {
-      "id": "e_1777300220032_1_step_1777300177835",
+      "id": "e_1777313667817_1_step_1777300177835",
       "source": "step_1777300081165",
       "target": "step_1777300177835"
     },
     {
-      "id": "e_1777302147710",
-      "source": "step_1777300177835",
-      "target": "step_1777302109439"
+      "id": "e_1777313667817_2_step_1777311807298",
+      "source": "step_1777300081165",
+      "target": "step_1777311807298"
+    },
+    {
+      "id": "e_1777313667817_3_step_1777313546856",
+      "source": "step_1777300081165",
+      "target": "step_1777313546856"
     }
   ],
   "steps": [
@@ -53,7 +68,21 @@
         "messageText": "Olá 👋!\nSeja muito bem vindo. 😊\nEu sou a Flower, sua assistente virtual 😃!\nIrei lhe guiar para o melhor atendimento.",
         "contextKey": "",
         "options": [],
-        "text": "Olá 👋!\nSeja muito bem vindo. 😊\nEu sou a Flower, sua assistente virtual 😃!\nIrei lhe guiar para o melhor atendimento."
+        "text": "Olá 👋!\nSeja muito bem vindo. 😊\nEu sou a Flower, sua assistente virtual 😃!\nIrei lhe guiar para o melhor atendimento.",
+        "messageMedia": [
+          {
+            "type": "image",
+            "url": "/api/media/file?workspace=default&name=1777312708515-0cdf720fa80594ae.png"
+          },
+          {
+            "type": "image",
+            "url": "/api/media/file?workspace=default&name=1777312728350-f81fcd3d680d7df4.png"
+          },
+          {
+            "type": "video",
+            "url": "/api/media/file?workspace=default&name=1777312744280-daf32aef42bbe95c.webm"
+          }
+        ]
       }
     },
     {
@@ -80,7 +109,10 @@
           "step_1777300176433",
           "step_1777300177835"
         ],
-        "text": "O Que você gostaria de fazer?"
+        "text": "O Que você gostaria de fazer?",
+        "invalidOptionTargetNodeId": "step_1777311807298",
+        "invalidOptionMaxAttempts": 2,
+        "invalidOptionExhaustedTargetNodeId": "step_1777313546856"
       }
     },
     {
@@ -127,8 +159,8 @@
       "id": "step_1777302109439",
       "type": "output",
       "position": {
-        "x": 940,
-        "y": 346
+        "x": 971,
+        "y": 533
       },
       "dimensions": {
         "width": 280,
@@ -141,6 +173,46 @@
         "contextKey": "",
         "options": [],
         "text": "Seu cancelamento será realizado.\nMuito obrigado!"
+      }
+    },
+    {
+      "id": "step_1777311807298",
+      "type": "message",
+      "position": {
+        "x": 120,
+        "y": 549
+      },
+      "dimensions": {
+        "width": 280,
+        "height": 120
+      },
+      "context": {
+        "name": "FALLBACK",
+        "description": "",
+        "messageText": "Não entendi. \nvamos tentar novamente!\n\n",
+        "contextKey": "",
+        "options": [],
+        "text": "Não entendi. \nvamos tentar novamente!\n\n"
+      }
+    },
+    {
+      "id": "step_1777313546856",
+      "type": "output",
+      "position": {
+        "x": 437,
+        "y": 697
+      },
+      "dimensions": {
+        "width": 280,
+        "height": 120
+      },
+      "context": {
+        "name": "MAX_FALLBACK",
+        "description": "",
+        "messageText": "Infelizmente o número máximo de tentativas chegou ao limite.\nEstou finalizando a conversa. 🤯",
+        "contextKey": "",
+        "options": [],
+        "text": "Infelizmente o número máximo de tentativas chegou ao limite.\nEstou finalizando a conversa. 🤯"
       }
     }
   ]

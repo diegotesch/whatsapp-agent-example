@@ -4,7 +4,7 @@
     {
       "id": "whatsapp",
       "kind": "whatsapp",
-      "enabled": false,
+      "enabled": true,
       "label": "WhatsApp Web (whatsapp-web.js)",
       "notes": "",
       "config": {}
