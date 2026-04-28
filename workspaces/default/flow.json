@@ -338,6 +338,25 @@
         "options": [],
         "optionTargetNodeIds": []
       }
+    },
+    {
+      "id": "step_1777323303921",
+      "type": "message",
+      "position": {
+        "x": 1325,
+        "y": 288
+      },
+      "dimensions": {
+        "width": 280,
+        "height": 120
+      },
+      "context": {
+        "name": "",
+        "description": "",
+        "messageText": "",
+        "contextKey": "",
+        "options": []
+      }
     }
   ]
 }
