@@ -36,14 +36,19 @@ Com `file:../flow-expert`, `npm install` já resolve o pacote localmente; não p
 
 ## Variáveis de ambiente
 
+O processo carrega **sempre** o ficheiro `.env` na **raiz deste pacote** (`whatsapp-flow-agent/.env`), com `override: true`, para não herdar por engano um `FLOW_EXPERT_API_KEY` exportado no shell a partir do servidor do Studio.
+
 | Variável | Descrição |
 |----------|-----------|
 | `PORT` | Porta do HTTP de health (default `8787`). |
 | `FLOW_EXPERT_URL` | URL base do flow-expert. |
 | `FLOW_EXPERT_WORKSPACE` | Query `workspace` (default `default`). |
+| `FLOW_EXPERT_API_KEY` | **Obrigatório:** Bearer para `POST /api/run` (chave do keystore do **mesmo** projecto que o `FLOW_EXPERT_URL` — teste, standard, owner, etc.). Não é o “segredo” do Studio; é a chave com que o **agente** fala com o motor. |
 | `WHATSAPP_SESSION_PATH` | Pasta da sessão `LocalAuth` (default `.wwebjs_auth`). |
 | `PUPPETEER_EXECUTABLE_PATH` | Caminho para o Chromium (opcional). |
 | `WHATSAPP_IGNORE_GROUPS` | `true` (default) ignora grupos; `false` também processa `@g.us`. |
+
+Com **1 a 3 opções** no último passo `input_prompt`, o agente envia **botões nativos** do WhatsApp (como “Sim / Não”); com **mais de 3**, mantém a lista numerada em texto (limite da API de botões = 3).
 
 ## Correr
 
