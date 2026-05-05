@@ -8,7 +8,7 @@ Agente **mínimo** que usa [**whatsapp-web.js**](https://github.com/pedroslopez/
 
 - Node 20+
 - Chromium instalado no sistema **ou** definir `PUPPETEER_EXECUTABLE_PATH` (comum em Docker).
-- `flow-expert` acessível na URL configurada (ex.: `http://localhost:5173`).
+- Dependência **`flow-expert`** publicada com `flowExpert.publicBackendUrl` no `package.json` (URL HTTPS do backend). O agente e o Studio leem esse valor — não há URL no `.env` deste projecto.
 
 ## Instalação
 
@@ -40,10 +40,10 @@ O processo carrega **sempre** o ficheiro `.env` na **raiz deste pacote** (`whats
 
 | Variável | Descrição |
 |----------|-----------|
-| `PORT` | Porta do HTTP de health (default `8787`). |
-| `FLOW_EXPERT_URL` | URL base do flow-expert. |
+| `PORT` | Porta do HTTP de health do agente (default `8787`). |
+| `FLOW_EXPERT_PORT` | Porta em que corres o `flow-expert studio` nesta máquina (default típico `5173`), para não confundir com `PORT`. |
 | `FLOW_EXPERT_WORKSPACE` | Query `workspace` (default `default`). |
-| `FLOW_EXPERT_API_KEY` | **Obrigatório:** Bearer para `POST /api/run` (chave do keystore do **mesmo** projecto que o `FLOW_EXPERT_URL` — teste, standard, owner, etc.). Não é o “segredo” do Studio; é a chave com que o **agente** fala com o motor. |
+| `FLOW_EXPERT_API_KEY` | **Obrigatório:** Bearer para `POST /api/run` — chave emitida pelo backend cujo URL está em `flowExpert.publicBackendUrl` no pacote `flow-expert`. |
 | `WHATSAPP_SESSION_PATH` | Pasta da sessão `LocalAuth` (default `.wwebjs_auth`). |
 | `PUPPETEER_EXECUTABLE_PATH` | Caminho para o Chromium (opcional). |
 | `WHATSAPP_IGNORE_GROUPS` | `true` (default) ignora grupos; `false` também processa `@g.us`. |
@@ -79,4 +79,4 @@ npm start
 
 ## Repositório
 
-Pode viver num **repositório Git separado** do `flow-expert`. O cliente HTTP e tipos vêm do pacote `flow-expert/agent-client`; em tempo de execução o motor continua a ser chamado por HTTP em `POST /api/run` (`FLOW_EXPERT_URL`).
+Pode viver num **repositório Git separado** do `flow-expert`. O cliente HTTP vem de `flow-expert/agent-client`; o URL do motor vem de `flow-expert/public-backend` (campo `flowExpert.publicBackendUrl` no `package.json` do pacote publicado).

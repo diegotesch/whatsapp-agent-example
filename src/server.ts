@@ -12,6 +12,7 @@ import {
   resolveMediaUrlToAbsolute,
   runFlow,
 } from "flow-expert/agent-client";
+import { getFlowExpertPublicBackendUrl } from "flow-expert/public-backend";
 
 const __agentDir = path.dirname(fileURLToPath(import.meta.url));
 /** Sempre o `.env` na raiz deste pacote (não depende do CWD; sobrepõe variáveis herdadas do shell). */
@@ -20,7 +21,14 @@ dotenv.config({ path: path.resolve(__agentDir, "..", ".env"), override: true });
 const { Client, LocalAuth, MessageMedia, Buttons } = wwebjs;
 
 const PORT = Number(process.env.PORT) || 8787;
-const FLOW_EXPERT_URL = (process.env.FLOW_EXPERT_URL || "http://localhost:5173").replace(/\/$/, "");
+const FLOW_EXPERT_URL_RAW = getFlowExpertPublicBackendUrl();
+if (!FLOW_EXPERT_URL_RAW) {
+  console.error(
+    "[agent] O pacote flow-expert não define flowExpert.publicBackendUrl no package.json (URL HTTPS do backend). Corrige a dependência ou pede uma versão publicada com esse campo preenchido.",
+  );
+  process.exit(1);
+}
+const FLOW_EXPERT_URL = FLOW_EXPERT_URL_RAW.replace(/\/$/, "");
 const FLOW_EXPERT_WORKSPACE = process.env.FLOW_EXPERT_WORKSPACE || "default";
 /** Token Bearer para `POST /api/run` — lido deste pacote após `dotenv.config` (não confundir com o `.env` só do flow-expert studio). */
 const FLOW_EXPERT_API_KEY = (process.env.FLOW_EXPERT_API_KEY ?? "").trim();
