@@ -30,6 +30,7 @@ if (!FLOW_EXPERT_URL_RAW) {
 }
 const FLOW_EXPERT_URL = FLOW_EXPERT_URL_RAW.replace(/\/$/, "");
 const FLOW_EXPERT_WORKSPACE = process.env.FLOW_EXPERT_WORKSPACE || "default";
+const FLOW_EXPERT_FLOW_ID = (process.env.FLOW_EXPERT_FLOW_ID ?? "").trim();
 /** Token Bearer para `POST /api/run` — lido deste pacote após `dotenv.config` (não confundir com o `.env` só do flow-expert studio). */
 const FLOW_EXPERT_API_KEY = (process.env.FLOW_EXPERT_API_KEY ?? "").trim();
 const SESSION_PATH = process.env.WHATSAPP_SESSION_PATH || ".wwebjs_auth";
@@ -86,7 +87,10 @@ client.on("disconnected", (reason) => {
 client.on("ready", () => {
   whatsappReady = true;
   console.log("[wweb] pronto — a escutar mensagens de texto (1:1" + (IGNORE_GROUPS ? ", grupos ignorados" : ", grupos incluídos") + ")");
-  console.log(`[wweb] flow-expert → ${FLOW_EXPERT_URL} workspace=${FLOW_EXPERT_WORKSPACE}`);
+  console.log(
+    `[wweb] flow-expert → ${FLOW_EXPERT_URL} workspace=${FLOW_EXPERT_WORKSPACE}` +
+      (FLOW_EXPERT_FLOW_ID ? ` flowId=${FLOW_EXPERT_FLOW_ID}` : ""),
+  );
   if (!FLOW_EXPERT_API_KEY) {
     console.warn("[wweb] FLOW_EXPERT_API_KEY vazio no .env deste agente — /api/run responderá 401.");
   } else {
@@ -120,6 +124,7 @@ client.on("message", async (msg) => {
       result = await runFlow({
         baseUrl: FLOW_EXPERT_URL,
         workspace: FLOW_EXPERT_WORKSPACE,
+        ...(FLOW_EXPERT_FLOW_ID ? { flowId: FLOW_EXPERT_FLOW_ID } : {}),
         userId,
         text,
         reset: false,

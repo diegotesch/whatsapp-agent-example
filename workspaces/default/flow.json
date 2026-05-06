@@ -5,10 +5,62 @@
       "id": "start",
       "type": "start",
       "position": {
-        "x": -715,
-        "y": -275
+        "x": -986,
+        "y": -556
       },
       "context": {}
+    },
+    {
+      "id": "step_1778024371111",
+      "type": "agent",
+      "position": {
+        "x": -470,
+        "y": -519
+      },
+      "dimensions": {
+        "width": 280,
+        "height": 120
+      },
+      "context": {
+        "name": "",
+        "description": "",
+        "messageText": "",
+        "contextKey": "",
+        "options": [],
+        "agentInputContextKey": ""
+      },
+      "config": {
+        "agentName": "pm",
+        "timeoutMs": 15000
+      }
+    },
+    {
+      "id": "step_1778024420292",
+      "type": "parallelAgent",
+      "position": {
+        "x": -481,
+        "y": -142
+      },
+      "dimensions": {
+        "width": 280,
+        "height": 120
+      },
+      "context": {
+        "name": "",
+        "description": "",
+        "messageText": "",
+        "contextKey": "",
+        "options": [],
+        "agentInputContextKey": ""
+      },
+      "config": {
+        "agentNames": [
+          "pm",
+          "architect"
+        ],
+        "timeoutMsPerAgent": 15000,
+        "mergePolicy": "all"
+      }
     }
   ]
 }
