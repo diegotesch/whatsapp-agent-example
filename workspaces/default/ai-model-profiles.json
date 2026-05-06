@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "profiles": [
+    {
+      "id": "openai-default",
+      "label": "OpenAI (OPENAI_API_KEY)",
+      "provider": "openai_compatible",
+      "baseUrl": "https://api.openai.com/v1",
+      "model": "gpt-4o-mini",
+      "apiKeyEnvVar": "OPENAI_API_KEY",
+      "temperature": 0.3
+    },
+    {
+      "id": "deepseek",
+      "label": "Ollama (OpenAI-compatible)",
+      "provider": "openai_compatible",
+      "baseUrl": "http://127.0.0.1:11434/v1",
+      "model": "deepseek-coder:instruct",
+      "temperature": 0.3
+    },
+    {
+      "id": "gemma",
+      "label": "Ollama (OpenAI-compatible)",
+      "provider": "openai_compatible",
+      "baseUrl": "http://127.0.0.1:11434/v1",
+      "model": "gemma:2b",
+      "temperature": 0.3
+    },
+    {
+      "id": "mistral",
+      "label": "Ollama (OpenAI-compatible)",
+      "provider": "openai_compatible",
+      "baseUrl": "http://127.0.0.1:11434/v1",
+      "model": "mistral:instruct",
+      "temperature": 0.3
+    }
+  ]
+}

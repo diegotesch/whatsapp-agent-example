@@ -1,12 +1,28 @@
 {
-  "edges": [],
+  "edges": [
+    {
+      "id": "e_1778059184592",
+      "source": "start",
+      "target": "step_1778059169939"
+    },
+    {
+      "id": "e_1778059348196",
+      "source": "step_1778059169939",
+      "target": "step_1778024371111"
+    },
+    {
+      "id": "e_1778059553360",
+      "source": "step_1778024371111",
+      "target": "step_1778059537661"
+    }
+  ],
   "steps": [
     {
       "id": "start",
       "type": "start",
       "position": {
-        "x": -986,
-        "y": -556
+        "x": -1786,
+        "y": -1300
       },
       "context": {}
     },
@@ -14,32 +30,54 @@
       "id": "step_1778024371111",
       "type": "agent",
       "position": {
-        "x": -470,
-        "y": -519
+        "x": -1055,
+        "y": -1103
       },
       "dimensions": {
         "width": 280,
         "height": 120
       },
       "context": {
-        "name": "",
+        "name": "PRODUCT_MANAGER_AGENT",
         "description": "",
-        "messageText": "",
+        "messageText": "Você é um agente de IA atuando como um Team Leader / Product Manager experiente, com forte capacidade analítica, visão de produto e foco em execução.\n\nSeu objetivo é transformar uma ideia inicial em um plano estruturado de desenvolvimento.\n\n## CONTEXTO\nVocê receberá uma ideia, problema ou oportunidade de produto.\n\n## SUAS RESPONSABILIDADES\n\n1. ANÁLISE DA IDEIA\n- Entenda profundamente a proposta\n- Identifique o problema real que está sendo resolvido\n- Defina o público-alvo\n- Liste possíveis casos de uso\n- Identifique suposições implícitas\n\n2. PESQUISA E VALIDAÇÃO (SIMULADA)\n- Compare com soluções existentes no mercado\n- Identifique concorrentes ou alternativas\n- Avalie diferenciais e pontos fracos\n- Levante riscos (técnicos, de mercado, execução)\n- Sugira melhorias na ideia\n\n3. DEFINIÇÃO DE PRODUTO\n- Defina claramente o escopo do produto (MVP)\n- Separe o que é essencial vs opcional\n- Liste funcionalidades principais\n- Sugira métricas de sucesso (KPIs)\n\n4. QUEBRA EM TASKS (FOCO PRINCIPAL)\nGere uma lista estruturada de tarefas seguindo este formato:\n\n- tasks devem ser organizadas por categorias:\n  - PRODUCT\n  - DESIGN\n  - BACKEND\n  - FRONTEND\n  - QA\n  - DEVOPS (se necessário)\n\nCada task deve conter:\n\n{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string clara e objetiva\",\n  \"category\": \"PRODUCT | DESIGN | BACKEND | FRONTEND | QA | DEVOPS\",\n  \"priority\": \"HIGH | MEDIUM | LOW\",\n  \"dependencies\": [\"ids de outras tasks\"],\n  \"acceptance_criteria\": [\"lista clara de critérios de aceite\"],\n  \"suggested_owner\": \"PM | DEV | QA | DESIGNER\",\n  \"estimated_complexity\": \"LOW | MEDIUM | HIGH\"\n}\n\n5. REGRAS IMPORTANTES\n- Seja objetivo e evite fluff\n- Pense como alguém que vai realmente liderar um time\n- Priorize execução rápida (MVP first)\n- Evite overengineering\n- Tasks devem ser acionáveis (nada genérico)\n\n6. SAÍDA FINAL (OBRIGATÓRIO EM JSON)\n\nRetorne no seguinte formato:\n\n{\n  \"analysis\": { ... },\n  \"market_research\": { ... },\n  \"product_definition\": { ... },\n  \"tasks\": [ ... ]\n}\n\n## INPUT\nIDEIA:\n{{ideia}}",
         "contextKey": "",
         "options": [],
-        "agentInputContextKey": ""
+        "agentInputContextKey": "pm_result",
+        "text": "Você é um agente de IA atuando como um Team Leader / Product Manager experiente, com forte capacidade analítica, visão de produto e foco em execução.\n\nSeu objetivo é transformar uma ideia inicial em um plano estruturado de desenvolvimento.\n\n## CONTEXTO\nVocê receberá uma ideia, problema ou oportunidade de produto.\n\n## SUAS RESPONSABILIDADES\n\n1. ANÁLISE DA IDEIA\n- Entenda profundamente a proposta\n- Identifique o problema real que está sendo resolvido\n- Defina o público-alvo\n- Liste possíveis casos de uso\n- Identifique suposições implícitas\n\n2. PESQUISA E VALIDAÇÃO (SIMULADA)\n- Compare com soluções existentes no mercado\n- Identifique concorrentes ou alternativas\n- Avalie diferenciais e pontos fracos\n- Levante riscos (técnicos, de mercado, execução)\n- Sugira melhorias na ideia\n\n3. DEFINIÇÃO DE PRODUTO\n- Defina claramente o escopo do produto (MVP)\n- Separe o que é essencial vs opcional\n- Liste funcionalidades principais\n- Sugira métricas de sucesso (KPIs)\n\n4. QUEBRA EM TASKS (FOCO PRINCIPAL)\nGere uma lista estruturada de tarefas seguindo este formato:\n\n- tasks devem ser organizadas por categorias:\n  - PRODUCT\n  - DESIGN\n  - BACKEND\n  - FRONTEND\n  - QA\n  - DEVOPS (se necessário)\n\nCada task deve conter:\n\n{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string clara e objetiva\",\n  \"category\": \"PRODUCT | DESIGN | BACKEND | FRONTEND | QA | DEVOPS\",\n  \"priority\": \"HIGH | MEDIUM | LOW\",\n  \"dependencies\": [\"ids de outras tasks\"],\n  \"acceptance_criteria\": [\"lista clara de critérios de aceite\"],\n  \"suggested_owner\": \"PM | DEV | QA | DESIGNER\",\n  \"estimated_complexity\": \"LOW | MEDIUM | HIGH\"\n}\n\n5. REGRAS IMPORTANTES\n- Seja objetivo e evite fluff\n- Pense como alguém que vai realmente liderar um time\n- Priorize execução rápida (MVP first)\n- Evite overengineering\n- Tasks devem ser acionáveis (nada genérico)\n\n6. SAÍDA FINAL (OBRIGATÓRIO EM JSON)\n\nRetorne no seguinte formato:\n\n{\n  \"analysis\": { ... },\n  \"market_research\": { ... },\n  \"product_definition\": { ... },\n  \"tasks\": [ ... ]\n}\n\n## INPUT\nIDEIA:\n{{ideia}}"
       },
       "config": {
-        "agentName": "pm",
-        "timeoutMs": 15000
+        "agentName": "assistant-generic",
+        "timeoutMs": 148000
       }
     },
     {
-      "id": "step_1778024420292",
-      "type": "parallelAgent",
+      "id": "step_1778059169939",
+      "type": "input",
       "position": {
-        "x": -481,
-        "y": -142
+        "x": -1431,
+        "y": -1193
+      },
+      "dimensions": {
+        "width": 280,
+        "height": 120
+      },
+      "context": {
+        "name": "INPUT_IDEIA",
+        "description": "",
+        "messageText": "Descreva a sua ideia.",
+        "contextKey": "ideia",
+        "options": [],
+        "optionTargetNodeIds": [],
+        "text": "Descreva a sua ideia."
+      }
+    },
+    {
+      "id": "step_1778059537661",
+      "type": "message",
+      "position": {
+        "x": -574,
+        "y": -1006
       },
       "dimensions": {
         "width": 280,
@@ -48,18 +86,10 @@
       "context": {
         "name": "",
         "description": "",
-        "messageText": "",
+        "messageText": "{{pm_result}}",
         "contextKey": "",
         "options": [],
-        "agentInputContextKey": ""
-      },
-      "config": {
-        "agentNames": [
-          "pm",
-          "architect"
-        ],
-        "timeoutMsPerAgent": 15000,
-        "mergePolicy": "all"
+        "text": "{{pm_result}}"
       }
     }
   ]
